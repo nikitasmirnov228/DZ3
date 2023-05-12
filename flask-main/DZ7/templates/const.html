@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Work with Jinja</title>
+    </head>
+    <body>
+        {% import "macros.html" as  macros %}
+        <h1>Work with Jinja</h1>
+        {% include "important.html" %}
+        <p>{{name|title}} love {{fruit}}</p>
+        {% if x ==y%}
+            <p>{{x}} равно {{y}}</p>
+        {% else %}
+            <p>{{x + y}}</p>
+        {% endif %}
+        <p></p>
+        {% set user_list = ['bot', 'cat', 'dog'] %}
+        <ol>
+        {% for user in user_list %}
+            <li>{{user|upper}} {{loop.index}}</li>
+        {% endfor %}
+        </ol>
+        <p></p>
+        {% set text = "number:" %}
+        {% set num = 5553535%}
+        <p>{{ text|safe }} {{num|round(2)}}</p>
+        {{macros.XminusY(x,y)}}
+       
+    </body>
+</html>
+
